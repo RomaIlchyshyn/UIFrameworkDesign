@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite parallel="tests" name="Test1">
+    <test thread-count="5" name="Submit Order Test">
+        <classes>
+            <class name="org.rahulshetty.Tests.SubmitOrderTest"/>
+        </classes>
+    </test>
+    <test thread-count="5" name="Error Validations tests">
+        <classes>
+            <class name="org.rahulshetty.Tests.ErrorValidations"/>
+        </classes>
+    </test>
+</suite>
