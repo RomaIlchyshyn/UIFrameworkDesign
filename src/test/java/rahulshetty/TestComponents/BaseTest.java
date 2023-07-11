@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -31,18 +32,22 @@ public class BaseTest {
         Properties properties = new Properties();
         FileInputStream fileInputStream = new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\rahulshetty\\resources\\GlobalData.properties");
         properties.load(fileInputStream);
-        String browserName = properties.getProperty("browser");
+        String browserName = System.getProperty("browser")!=null ? System.getProperty("browser") : properties.getProperty("browser");
 
-        if (browserName.equalsIgnoreCase("chrome")) {
+        if (browserName.contains("chrome")) {
 
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--remote-allow-origins=*");
             WebDriverManager.chromedriver().setup();
+            if(browserName.contains("headless")){
+                options.addArguments("headless");
+            }
             driver = new ChromeDriver(options);
+            driver.manage().window().setSize(new Dimension(1440,900));
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         } else if (browserName.equalsIgnoreCase("firefox")) {
-            //
+
         } else if (browserName.equalsIgnoreCase("edge")) {
 
             System.setProperty("webdriver.edge.driver", "edge.exe");
@@ -63,12 +68,20 @@ public class BaseTest {
         return data;
     }
 
-    public String getScreenshot(String testCaseName) throws IOException {
-        TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
-        File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
-        File file = new File(System.getProperty("user.dir")+"//reports//" + testCaseName + ".png");
+    public String getScreenshot(String testCaseName,WebDriver driver) throws IOException
+
+    {
+
+        TakesScreenshot ts = (TakesScreenshot)driver;
+
+        File source = ts.getScreenshotAs(OutputType.FILE);
+
+        File file = new File(System.getProperty("user.dir") + "//reports//" + testCaseName + ".png");
+
         FileUtils.copyFile(source, file);
-        return System.getProperty("user.dir")+"//reports//" + testCaseName + ".png";
+
+        return System.getProperty("user.dir") + "//reports//" + testCaseName + ".png";
+
     }
 
     @BeforeMethod

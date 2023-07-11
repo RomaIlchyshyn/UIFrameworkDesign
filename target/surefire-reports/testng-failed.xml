@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Failed suite [Test1]" guice-stage="DEVELOPMENT" verbose="0">
+  <listeners>
+    <listener class-name="rahulshetty.TestComponents.Listeners"/>
+  </listeners>
+  <test thread-count="5" parallel="tests" name="Submit Order Test(failed)" verbose="0">
+    <classes>
+      <class name="org.rahulshetty.Tests.SubmitOrderTest">
+        <methods>
+          <include name="closeBrowser"/>
+          <include name="submitOrderTest"/>
+          <include name="orderHistoryTest"/>
+          <include name="launchApplication"/>
+        </methods>
+      </class> <!-- org.rahulshetty.Tests.SubmitOrderTest -->
+    </classes>
+  </test> <!-- Submit Order Test(failed) -->
+  <test thread-count="5" parallel="tests" name="Error Validations tests(failed)" verbose="0">
+    <classes>
+      <class name="org.rahulshetty.Tests.errorValidations">
+        <methods>
+          <include name="closeBrowser"/>
+          <include name="launchApplication"/>
+          <include name="errorValidationTest"/>
+        </methods>
+      </class> <!-- org.rahulshetty.Tests.errorValidations -->
+    </classes>
+  </test> <!-- Error Validations tests(failed) -->
+</suite> <!-- Failed suite [Test1] -->

@@ -3,30 +3,51 @@ package rahulshetty.TestComponents;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import rahulshetty.resources.ExtentReporterNG;
 
-public class Listeners implements ITestListener {
+import java.io.IOException;
+
+public class Listeners extends BaseTest implements ITestListener {
     ExtentTest test;
+    ThreadLocal<ExtentTest> extentTest = new ThreadLocal();
+
     ExtentReports extentReports = ExtentReporterNG.getReportObject();
     @Override
     public void onTestStart(ITestResult result) {
         test = extentReports.createTest(result.getMethod().getMethodName());
-        test.ad
+        extentTest.set(test);
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        test.log(Status.PASS, "Test Passed");
+        extentTest.get().log(Status.PASS, "Test Passed");
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        test.fail(result.getThrowable());
+        extentTest.get().fail(result.getThrowable());
 
-    }
+        try {
+            driver = (WebDriver) result.getTestClass().getRealClass().getField("driver")
+                    .get(result.getInstance());
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
+
+            String filePath;
+            try {
+                filePath = getScreenshot(result.getMethod().getMethodName(), driver);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            extentTest.get().addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
+
+        }
+
 
     @Override
     public void onTestSkipped(ITestResult result) {
@@ -50,6 +71,6 @@ public class Listeners implements ITestListener {
 
     @Override
     public void onFinish(ITestContext context) {
-        ITestListener.super.onFinish(context);
+        extentReports.flush();
     }
 }

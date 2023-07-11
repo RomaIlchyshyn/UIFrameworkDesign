@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-06-02T13:47:13 EEST" name="Test1" finished-at="2023-06-02T13:47:48 EEST" duration-ms="35181">
+    <groups>
+    </groups>
+    <test started-at="2023-06-02T13:47:13 EEST" name="Error Validations tests" finished-at="2023-06-02T13:47:17 EEST" duration-ms="4714">
+      <class name="org.rahulshetty.Tests.errorValidations">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:org.rahulshetty.Tests.errorValidations@7857fe2]" started-at="2023-06-02T13:47:13 EEST" name="launchApplication" finished-at="2023-06-02T13:47:16 EEST" duration-ms="3678" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="errorValidationTest()[pri:0, instance:org.rahulshetty.Tests.errorValidations@7857fe2]" started-at="2023-06-02T13:47:16 EEST" name="errorValidationTest" finished-at="2023-06-02T13:47:17 EEST" duration-ms="945" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- errorValidationTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:org.rahulshetty.Tests.errorValidations@7857fe2]" started-at="2023-06-02T13:47:17 EEST" name="closeBrowser" finished-at="2023-06-02T13:47:17 EEST" duration-ms="67" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- org.rahulshetty.Tests.errorValidations -->
+    </test> <!-- Error Validations tests -->
+    <test started-at="2023-06-02T13:47:13 EEST" name="Submit Order Test" finished-at="2023-06-02T13:47:48 EEST" duration-ms="35181">
+      <class name="org.rahulshetty.Tests.SubmitOrderTest">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:org.rahulshetty.Tests.SubmitOrderTest@433defed]" started-at="2023-06-02T13:47:13 EEST" name="launchApplication" finished-at="2023-06-02T13:47:16 EEST" duration-ms="3475" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="submitOrderTest(java.util.HashMap)[pri:0, instance:org.rahulshetty.Tests.SubmitOrderTest@433defed]" started-at="2023-06-02T13:47:16 EEST" name="submitOrderTest" data-provider="getData" finished-at="2023-06-02T13:47:31 EEST" duration-ms="14987" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{password=Barak123!, product=ZARA COAT 3, email=barak_obama@gmail.com}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitOrderTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:org.rahulshetty.Tests.SubmitOrderTest@433defed]" started-at="2023-06-02T13:47:31 EEST" name="closeBrowser" finished-at="2023-06-02T13:47:31 EEST" duration-ms="64" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:org.rahulshetty.Tests.SubmitOrderTest@433defed]" started-at="2023-06-02T13:47:31 EEST" name="launchApplication" finished-at="2023-06-02T13:47:34 EEST" duration-ms="2767" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="submitOrderTest(java.util.HashMap)[pri:0, instance:org.rahulshetty.Tests.SubmitOrderTest@433defed]" started-at="2023-06-02T13:47:34 EEST" name="submitOrderTest" data-provider="getData" finished-at="2023-06-02T13:47:44 EEST" duration-ms="9979" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{password=Iamking@000, product=ADIDAS ORIGINAL, email=shetty@gmail.com}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitOrderTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:org.rahulshetty.Tests.SubmitOrderTest@433defed]" started-at="2023-06-02T13:47:44 EEST" name="closeBrowser" finished-at="2023-06-02T13:47:44 EEST" duration-ms="73" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:org.rahulshetty.Tests.SubmitOrderTest@433defed]" started-at="2023-06-02T13:47:44 EEST" name="launchApplication" finished-at="2023-06-02T13:47:47 EEST" duration-ms="2827" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="orderHistoryTest()[pri:0, instance:org.rahulshetty.Tests.SubmitOrderTest@433defed]" started-at="2023-06-02T13:47:47 EEST" name="orderHistoryTest" finished-at="2023-06-02T13:47:48 EEST" depends-on-methods="org.rahulshetty.Tests.SubmitOrderTest.submitOrderTest" duration-ms="721" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- orderHistoryTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:org.rahulshetty.Tests.SubmitOrderTest@433defed]" started-at="2023-06-02T13:47:48 EEST" name="closeBrowser" finished-at="2023-06-02T13:47:48 EEST" duration-ms="72" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- org.rahulshetty.Tests.SubmitOrderTest -->
+    </test> <!-- Submit Order Test -->
+  </suite> <!-- Test1 -->
+</testng-results>

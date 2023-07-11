@@ -1,5 +1,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite parallel="tests" name="Test1">
+    <listeners>
+        <listener class-name="rahulshetty.TestComponents.Listeners"/>
+    </listeners>
     <test thread-count="5" name="Submit Order Test">
         <classes>
             <class name="org.rahulshetty.Tests.SubmitOrderTest"/>
@@ -7,7 +10,7 @@
     </test>
     <test thread-count="5" name="Error Validations tests">
         <classes>
-            <class name="org.rahulshetty.Tests.ErrorValidations"/>
+            <class name="org.rahulshetty.Tests.errorValidations"/>
         </classes>
     </test>
 </suite>
